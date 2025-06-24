@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F6DB0012E0B29CF000A76DE /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6DB0002E0B29CF000A76DE /* ResultCell.swift */; };
+		0F6DB0032E0B2CD6000A76DE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 0F6DB0022E0B2CD6000A76DE /* .gitignore */; };
 		2166686F2D48E23F009AAA76 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2166686E2D48E23F009AAA76 /* Fonts.swift */; };
 		216668712D48E4B2009AAA76 /* NSAttributedString+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216668702D48E4B2009AAA76 /* NSAttributedString+Ext.swift */; };
 		216668732D48E89A009AAA76 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216668722D48E89A009AAA76 /* Colors.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F6DB0002E0B29CF000A76DE /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
+		0F6DB0022E0B2CD6000A76DE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2166686E2D48E23F009AAA76 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		216668702D48E4B2009AAA76 /* NSAttributedString+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Ext.swift"; sourceTree = "<group>"; };
 		216668722D48E89A009AAA76 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				21B82E252D47B0640085DAA2 /* ReviewCell.swift */,
+				0F6DB0002E0B29CF000A76DE /* ResultCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -92,6 +97,7 @@
 		21B82DF02D4792300085DAA2 = {
 			isa = PBXGroup;
 			children = (
+				0F6DB0022E0B2CD6000A76DE /* .gitignore */,
 				21B82E2C2D47B0640085DAA2 /* Test */,
 				21B82DFA2D4792300085DAA2 /* Products */,
 			);
@@ -249,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21B82E3C2D47B2230085DAA2 /* getReviews.response.json in Resources */,
+				0F6DB0032E0B2CD6000A76DE /* .gitignore in Resources */,
 				21B82E322D47B0640085DAA2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +284,7 @@
 				21ED1F652D69D0340012D6F6 /* ReviewsScreenFactory.swift in Sources */,
 				2166686F2D48E23F009AAA76 /* Fonts.swift in Sources */,
 				21B82E312D47B0640085DAA2 /* AppDelegate.swift in Sources */,
+				0F6DB0012E0B29CF000A76DE /* ResultCell.swift in Sources */,
 				21B8416F2D47C4C60085DAA2 /* String+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
