@@ -79,9 +79,14 @@ private extension ReviewsViewModel {
     typealias ReviewItem = ReviewCellConfig
 
     func makeReviewItem(_ review: Review) -> ReviewItem {
+        let usernameString = ("\(review.first_name) \(review.last_name)")
+        let username = usernameString.attributed(font: .username)
+        let rating = ratingRenderer.ratingImage(review.rating)
         let reviewText = review.text.attributed(font: .text)
         let created = review.created.attributed(font: .created, color: .created)
         let item = ReviewItem(
+            username: username,
+            rating: rating,
             reviewText: reviewText,
             created: created,
             onTapShowMore: showMoreReview
