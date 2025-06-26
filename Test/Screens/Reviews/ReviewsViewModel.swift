@@ -37,7 +37,6 @@ extension ReviewsViewModel {
         state.shouldLoad = false
         reviewsProvider.getReviews(offset: state.offset, completion: gotReviews)
     }
-
 }
 
 // MARK: - Private
@@ -52,6 +51,8 @@ private extension ReviewsViewModel {
             state.items += reviews.items.map(makeReviewItem)
             state.offset += state.limit
             state.shouldLoad = state.offset < reviews.count
+            state.reviewCount = reviews.count
+            state.reviewCountCell = makeReviewCountItem(reviews.count)
         } catch {
             state.shouldLoad = true
         }
@@ -69,7 +70,6 @@ private extension ReviewsViewModel {
         state.items[index] = item
         onStateChange?(state)
     }
-
 }
 
 // MARK: - Items
@@ -77,6 +77,7 @@ private extension ReviewsViewModel {
 private extension ReviewsViewModel {
 
     typealias ReviewItem = ReviewCellConfig
+    typealias ReviewCountItem = ReviewCountCellConfig
 
     func makeReviewItem(_ review: Review) -> ReviewItem {
         let usernameString = ("\(review.first_name) \(review.last_name)")
@@ -93,6 +94,12 @@ private extension ReviewsViewModel {
         )
         return item
     }
+    
+    func makeReviewCountItem(_ reviewCount: Int) -> ReviewCountItem {
+        let reviewCountString = ("\(reviewCount) отзывов")
+        let item = ReviewCountItem(reviewCount: reviewCountString.attributed(font: .reviewCount, color: .reviewCount))
+        return item
+    }
 
 }
 
@@ -101,10 +108,21 @@ private extension ReviewsViewModel {
 extension ReviewsViewModel: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        state.items.count
+        if state.items.count < state.reviewCount {
+            return state.items.count
+        } else {
+            return state.reviewCount + 1
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == state.reviewCount {
+            let config = state.reviewCountCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: config.reuseId, for: indexPath)
+            config.update(cell: cell)
+            return cell
+        }
+        
         let config = state.items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: config.reuseId, for: indexPath)
         config.update(cell: cell)
@@ -118,7 +136,11 @@ extension ReviewsViewModel: UITableViewDataSource {
 extension ReviewsViewModel: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        state.items[indexPath.row].height(with: tableView.bounds.size)
+        if indexPath.row == state.reviewCount {
+            return state.reviewCountCell.height(with: tableView.bounds.size)
+        }
+        
+        return state.items[indexPath.row].height(with: tableView.bounds.size)
     }
 
     /// Метод дозапрашивает отзывы, если до конца списка отзывов осталось два с половиной экрана по высоте.
