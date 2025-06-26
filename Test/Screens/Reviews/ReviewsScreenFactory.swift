@@ -7,5 +7,4 @@ final class ReviewsScreenFactory {
         let controller = ReviewsViewController(viewModel: viewModel)
         return controller
     }
-
 }

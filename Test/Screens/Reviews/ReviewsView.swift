@@ -17,7 +17,6 @@ final class ReviewsView: UIView {
         super.layoutSubviews()
         tableView.frame = bounds.inset(by: safeAreaInsets)
     }
-
 }
 
 // MARK: - Private

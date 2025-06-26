@@ -24,7 +24,11 @@ final class ReviewsViewController: UIViewController {
         setupViewModel()
         viewModel.getReviews()
     }
-
+    
+    deinit {
+        reviewsView.tableView.delegate = nil
+        reviewsView.tableView.dataSource = nil
+    }
 }
 
 // MARK: - Private

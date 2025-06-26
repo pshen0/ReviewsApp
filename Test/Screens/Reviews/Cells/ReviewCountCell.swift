@@ -65,7 +65,6 @@ final class ReviewCountCell: UITableViewCell {
         guard let layout = config?.layout else { return }
         reviewCountLabel.frame = layout.reviewCountLabelFrame
     }
-
 }
 
 // MARK: - Private
