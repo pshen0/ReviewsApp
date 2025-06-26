@@ -1,4 +1,5 @@
 import UIKit
+import Foundation
 
 /// Класс, описывающий бизнес-логику экрана отзывов.
 final class ReviewsViewModel: NSObject {
@@ -27,14 +28,21 @@ final class ReviewsViewModel: NSObject {
 // MARK: - Internal
 
 extension ReviewsViewModel {
-
+    
     typealias State = ReviewsViewModelState
-
+    
     /// Метод получения отзывов.
     func getReviews() {
         guard state.shouldLoad else { return }
         state.shouldLoad = false
-        reviewsProvider.getReviews(offset: state.offset, completion: gotReviews)
+        
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            self?.reviewsProvider.getReviews(offset: self?.state.offset ?? 0) { result in
+                DispatchQueue.main.async {
+                    self?.gotReviews(result)
+                }
+            }
+        }
     }
 }
 
