@@ -7,7 +7,14 @@
             "rating": 5,
             "text": "Кроссовки хорошие. Удобные. Как по мне сшиты.",
             "created": "1 час назад",
-            "avatar_url": "https://github.com/user-attachments/assets/86ff7c70-3a03-493c-a8aa-35ec5d3187f5"
+            "avatar_url": "https://github.com/user-attachments/assets/86ff7c70-3a03-493c-a8aa-35ec5d3187f5",
+            "photo_urls": [
+                "https://github.com/user-attachments/assets/92822fd8-04d2-4723-8a97-a895c0eaa936",
+                "https://github.com/user-attachments/assets/0d3ffff5-0e46-43f1-9bf8-1f1a53b394da",
+                "https://github.com/user-attachments/assets/01abf0f0-f6f7-4304-9d53-cb37e8f0b330",
+                "https://github.com/user-attachments/assets/699dec79-f6f0-4d25-968e-afb4922306e7",
+                "https://github.com/user-attachments/assets/6f3d5a9b-fc7a-468a-bf6e-0e54f45abcb5"
+            ]
         },
         {
             "first_name": "Екатерина",
@@ -15,7 +22,11 @@
             "rating": 3,
             "text": "Скользские ужасно.",
             "created": "12 минут назад",
-            "avatar_url": "https://github.com/user-attachments/assets/7fb6a6d3-25b7-4b3f-ada4-e74b94a73ba4"
+            "avatar_url": "https://github.com/user-attachments/assets/7fb6a6d3-25b7-4b3f-ada4-e74b94a73ba4",
+            "photo_urls": [
+                "https://github.com/user-attachments/assets/3df5f64b-d6ba-4a5c-bf37-5140f734815a",
+                "https://github.com/user-attachments/assets/f0554165-a4f2-46a7-a8fa-f3a011d16877"
+            ]
         },
         {
             "first_name": "Евгения",
@@ -23,7 +34,11 @@
             "rating": 4,
             "text": "Прошла по снегу 30 метров, 5 раз упала. Спасибо мужу, поддерживал. Возврат, к сожалению.",
             "created": "35 минут назад",
-            "avatar_url": "https://github.com/user-attachments/assets/b633ee03-9569-4893-8555-e5b51dd4c114"
+            "avatar_url": "https://github.com/user-attachments/assets/b633ee03-9569-4893-8555-e5b51dd4c114",
+            "photo_urls": [
+                "https://github.com/user-attachments/assets/117b62bd-c060-4c58-a0d9-49f55f39e665",
+                "https://github.com/user-attachments/assets/c1919b3c-2c09-4574-a00a-38cdef7e86d1"
+            ]
         },
         {
             "first_name": "Илья",
@@ -31,7 +46,12 @@
             "rating": 2,
             "text": "Понравилось отношение - несмотря на то, что заказ был выполнен не идеально, продавец был очень любезен и шёл... Прошла по снегу 30 метров, 5 раз упала. Спасибо мужу, поддерживал. Возврат, к сожалению.",
             "created": "минуту назад",
-            "avatar_url": "https://github.com/user-attachments/assets/7a7f3dba-66ce-4054-b18b-cc55ffca7b8c"
+            "avatar_url": "https://github.com/user-attachments/assets/7a7f3dba-66ce-4054-b18b-cc55ffca7b8c",
+            "photo_urls": [
+                "https://github.com/user-attachments/assets/01abf0f0-f6f7-4304-9d53-cb37e8f0b330",
+                "https://github.com/user-attachments/assets/699dec79-f6f0-4d25-968e-afb4922306e7",
+                "https://github.com/user-attachments/assets/c1919b3c-2c09-4574-a00a-38cdef7e86d1"
+            ]
         },
         {
             "first_name": "Никита",
@@ -39,7 +59,11 @@
             "rating": 5,
             "text": "Отлично выглядят, хоть и скользковатые...",
             "created": "только что",
-            "avatar_url": "https://github.com/user-attachments/assets/7a7f3dba-66ce-4054-b18b-cc55ffca7b8c"
+            "avatar_url": "https://github.com/user-attachments/assets/7a7f3dba-66ce-4054-b18b-cc55ffca7b8c",
+            "photo_urls": [
+                "https://github.com/user-attachments/assets/699dec79-f6f0-4d25-968e-afb4922306e7",
+                "https://github.com/user-attachments/assets/6f3d5a9b-fc7a-468a-bf6e-0e54f45abcb5"
+            ]
         },
         {
             "first_name": "Олег",
@@ -47,7 +71,11 @@
             "rating": 1,
             "text": "Ребёнок жалуется, что очень скользские. Пока шла до школы...",
             "created": "15 минут назад",
-            "avatar_url": "https://github.com/user-attachments/assets/7fb6a6d3-25b7-4b3f-ada4-e74b94a73ba4"
+            "avatar_url": "https://github.com/user-attachments/assets/7fb6a6d3-25b7-4b3f-ada4-e74b94a73ba4",
+            "photo_urls": [
+                "https://github.com/user-attachments/assets/92822fd8-04d2-4723-8a97-a895c0eaa936",
+                "https://github.com/user-attachments/assets/0d3ffff5-0e46-43f1-9bf8-1f1a53b394da"
+            ]
         },
         {
             "first_name": "Николай",
@@ -55,7 +83,11 @@
             "rating": 2,
             "text": "",
             "created": "вчера в 12:39",
-            "avatar_url": "https://github.com/user-attachments/assets/b633ee03-9569-4893-8555-e5b51dd4c114"
+            "avatar_url": "https://github.com/user-attachments/assets/b633ee03-9569-4893-8555-e5b51dd4c114",
+            "photo_urls": [
+                "https://github.com/user-attachments/assets/01abf0f0-f6f7-4304-9d53-cb37e8f0b330",
+                "https://github.com/user-attachments/assets/699dec79-f6f0-4d25-968e-afb4922306e7"
+            ]
         },
 
 
@@ -65,7 +97,12 @@
             "rating": 5,
             "text": "Кроссовки хорошие. Удобные. Как по мне сшиты.",
             "created": "1 час назад",
-            "avatar_url": "https://github.com/user-attachments/assets/7fb6a6d3-25b7-4b3f-ada4-e74b94a73ba4"
+            "avatar_url": "https://github.com/user-attachments/assets/7fb6a6d3-25b7-4b3f-ada4-e74b94a73ba4",
+            "photo_urls": [
+                "https://github.com/user-attachments/assets/6f3d5a9b-fc7a-468a-bf6e-0e54f45abcb5",
+                "https://github.com/user-attachments/assets/3df5f64b-d6ba-4a5c-bf37-5140f734815a",
+                "https://github.com/user-attachments/assets/f0554165-a4f2-46a7-a8fa-f3a011d16877",
+            ]
         },
         {
             "first_name": "Екатерина",
@@ -73,7 +110,11 @@
             "rating": 3,
             "text": "Скользские ужасно.",
             "created": "12 минут назад",
-            "avatar_url": "https://github.com/user-attachments/assets/86ff7c70-3a03-493c-a8aa-35ec5d3187f5"
+            "avatar_url": "https://github.com/user-attachments/assets/86ff7c70-3a03-493c-a8aa-35ec5d3187f5",
+            "photo_urls": [
+                "https://github.com/user-attachments/assets/c1919b3c-2c09-4574-a00a-38cdef7e86d1"
+            ]
+            
         },
         {
             "first_name": "Евгения",
@@ -81,7 +122,14 @@
             "rating": 4,
             "text": "Прошла по снегу 30 метров, 5 раз упала. Спасибо мужу, поддерживал. Возврат, к сожалению.",
             "created": "35 минут назад",
-            "avatar_url": "https://github.com/user-attachments/assets/b633ee03-9569-4893-8555-e5b51dd4c114"
+            "avatar_url": "https://github.com/user-attachments/assets/b633ee03-9569-4893-8555-e5b51dd4c114",
+            "photo_urls": [
+                "https://github.com/user-attachments/assets/92822fd8-04d2-4723-8a97-a895c0eaa936",
+                "https://github.com/user-attachments/assets/01abf0f0-f6f7-4304-9d53-cb37e8f0b330",
+                "https://github.com/user-attachments/assets/6f3d5a9b-fc7a-468a-bf6e-0e54f45abcb5",
+                "https://github.com/user-attachments/assets/f0554165-a4f2-46a7-a8fa-f3a011d16877",
+                "https://github.com/user-attachments/assets/c1919b3c-2c09-4574-a00a-38cdef7e86d1"
+            ]
         },
         {
             "first_name": "Илья",
@@ -89,7 +137,13 @@
             "rating": 2,
             "text": "Понравилось отношение - несмотря на то, что заказ был выполнен не идеально, продавец был очень любезен и шёл... Прошла по снегу 30 метров, 5 раз упала. Спасибо мужу, поддерживал. Возврат, к сожалению.",
             "created": "минуту назад",
-            "avatar_url": "https://github.com/user-attachments/assets/7fb6a6d3-25b7-4b3f-ada4-e74b94a73ba4"
+            "avatar_url": "https://github.com/user-attachments/assets/7fb6a6d3-25b7-4b3f-ada4-e74b94a73ba4",
+            "photo_urls": [
+                "https://github.com/user-attachments/assets/0d3ffff5-0e46-43f1-9bf8-1f1a53b394da",
+                "https://github.com/user-attachments/assets/699dec79-f6f0-4d25-968e-afb4922306e7",
+                "https://github.com/user-attachments/assets/3df5f64b-d6ba-4a5c-bf37-5140f734815a",
+                "https://github.com/user-attachments/assets/117b62bd-c060-4c58-a0d9-49f55f39e665",
+            ]
         },
         {
             "first_name": "Никита",
@@ -97,7 +151,8 @@
             "rating": 5,
             "text": "Отлично выглядят, хоть и скользковатые...",
             "created": "только что",
-            "avatar_url": "https://github.com/user-attachments/assets/7a7f3dba-66ce-4054-b18b-cc55ffca7b8c"
+            "avatar_url": "https://github.com/user-attachments/assets/7a7f3dba-66ce-4054-b18b-cc55ffca7b8c",
+            "photo_urls": []
         },
         {
             "first_name": "Олег",
@@ -105,7 +160,8 @@
             "rating": 1,
             "text": "Ребёнок жалуется, что очень скользские. Пока шла до школы...",
             "created": "15 минут назад",
-            "avatar_url": "https://github.com/user-attachments/assets/b633ee03-9569-4893-8555-e5b51dd4c114"
+            "avatar_url": "https://github.com/user-attachments/assets/b633ee03-9569-4893-8555-e5b51dd4c114",
+            "photo_urls": []
         },
         {
             "first_name": "Николай",
@@ -113,7 +169,10 @@
             "rating": 2,
             "text": "",
             "created": "вчера в 12:39",
-            "avatar_url": "https://github.com/user-attachments/assets/86ff7c70-3a03-493c-a8aa-35ec5d3187f5"
+            "avatar_url": "https://github.com/user-attachments/assets/86ff7c70-3a03-493c-a8aa-35ec5d3187f5",
+            "photo_urls": [
+                "https://github.com/user-attachments/assets/c1919b3c-2c09-4574-a00a-38cdef7e86d1"
+            ]
         },
 
 
@@ -123,7 +182,12 @@
             "rating": 5,
             "text": "Кроссовки хорошие. Удобные. Как по мне сшиты.",
             "created": "1 час назад",
-            "avatar_url": "https://github.com/user-attachments/assets/7fb6a6d3-25b7-4b3f-ada4-e74b94a73ba4"
+            "avatar_url": "https://github.com/user-attachments/assets/7fb6a6d3-25b7-4b3f-ada4-e74b94a73ba4",
+            "photo_urls": [
+                "https://github.com/user-attachments/assets/92822fd8-04d2-4723-8a97-a895c0eaa936",
+                "https://github.com/user-attachments/assets/0d3ffff5-0e46-43f1-9bf8-1f1a53b394da",
+                "https://github.com/user-attachments/assets/6f3d5a9b-fc7a-468a-bf6e-0e54f45abcb5"
+            ]
         },
         {
             "first_name": "Екатерина",
@@ -131,7 +195,8 @@
             "rating": 3,
             "text": "Скользские ужасно.",
             "created": "12 минут назад",
-            "avatar_url": "https://github.com/user-attachments/assets/7a7f3dba-66ce-4054-b18b-cc55ffca7b8c"
+            "avatar_url": "https://github.com/user-attachments/assets/7a7f3dba-66ce-4054-b18b-cc55ffca7b8c",
+            "photo_urls": []
         },
         {
             "first_name": "Евгения",
@@ -139,7 +204,8 @@
             "rating": 4,
             "text": "Прошла по снегу 30 метров, 5 раз упала. Спасибо мужу, поддерживал. Возврат, к сожалению.",
             "created": "35 минут назад",
-            "avatar_url": "https://github.com/user-attachments/assets/b633ee03-9569-4893-8555-e5b51dd4c114"
+            "avatar_url": "https://github.com/user-attachments/assets/b633ee03-9569-4893-8555-e5b51dd4c114",
+            "photo_urls": []
         },
         {
             "first_name": "Илья",
@@ -147,7 +213,12 @@
             "rating": 2,
             "text": "Понравилось отношение - несмотря на то, что заказ был выполнен не идеально, продавец был очень любезен и шёл... Прошла по снегу 30 метров, 5 раз упала. Спасибо мужу, поддерживал. Возврат, к сожалению.",
             "created": "минуту назад",
-            "avatar_url": "https://github.com/user-attachments/assets/86ff7c70-3a03-493c-a8aa-35ec5d3187f5"
+            "avatar_url": "https://github.com/user-attachments/assets/86ff7c70-3a03-493c-a8aa-35ec5d3187f5",
+            "photo_urls": [
+                "https://github.com/user-attachments/assets/92822fd8-04d2-4723-8a97-a895c0eaa936",
+                "https://github.com/user-attachments/assets/0d3ffff5-0e46-43f1-9bf8-1f1a53b394da",
+                "https://github.com/user-attachments/assets/01abf0f0-f6f7-4304-9d53-cb37e8f0b330"
+            ]
         },
         {
             "first_name": "Никита",
@@ -155,7 +226,12 @@
             "rating": 5,
             "text": "Отлично выглядят, хоть и скользковатые...",
             "created": "только что",
-            "avatar_url": "https://github.com/user-attachments/assets/7a7f3dba-66ce-4054-b18b-cc55ffca7b8c"
+            "avatar_url": "https://github.com/user-attachments/assets/7a7f3dba-66ce-4054-b18b-cc55ffca7b8c",
+            "photo_urls": [
+                "https://github.com/user-attachments/assets/01abf0f0-f6f7-4304-9d53-cb37e8f0b330",
+                "https://github.com/user-attachments/assets/699dec79-f6f0-4d25-968e-afb4922306e7",
+                "https://github.com/user-attachments/assets/c1919b3c-2c09-4574-a00a-38cdef7e86d1"
+            ]
         },
         {
             "first_name": "Олег",
@@ -163,7 +239,8 @@
             "rating": 1,
             "text": "Ребёнок жалуется, что очень скользские. Пока шла до школы...",
             "created": "15 минут назад",
-            "avatar_url": "https://github.com/user-attachments/assets/7fb6a6d3-25b7-4b3f-ada4-e74b94a73ba4"
+            "avatar_url": "https://github.com/user-attachments/assets/7fb6a6d3-25b7-4b3f-ada4-e74b94a73ba4",
+            "photo_urls": []
         },
         {
             "first_name": "Николай",
@@ -171,7 +248,10 @@
             "rating": 2,
             "text": "",
             "created": "вчера в 12:39",
-            "avatar_url": "https://github.com/user-attachments/assets/86ff7c70-3a03-493c-a8aa-35ec5d3187f5"
+            "avatar_url": "https://github.com/user-attachments/assets/86ff7c70-3a03-493c-a8aa-35ec5d3187f5",
+            "photo_urls": [
+                "https://github.com/user-attachments/assets/92822fd8-04d2-4723-8a97-a895c0eaa936"
+            ]
         },
     ]
 }
