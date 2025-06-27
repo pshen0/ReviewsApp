@@ -92,15 +92,34 @@ private extension ReviewsViewModel {
         let rating = ratingRenderer.ratingImage(review.rating)
         let reviewText = review.text.attributed(font: .text)
         let created = review.created.attributed(font: .created, color: .created)
-        let item = ReviewItem(
+        
+        var item = ReviewItem(
             username: username,
             rating: rating,
             reviewText: reviewText,
             created: created,
+            avatar: UIImage.avatarPic,
             onTapShowMore: { [weak self] id in
                 self?.showMoreReview(with: id)
             }
         )
+        
+        if let url = URL(string: review.avatar_url) {
+            ReviewsAvatarLoader.shared.loadImage(from: url) { [weak self] image in
+                guard let image else { return }
+                
+                if let index = self?.state.items.firstIndex(where: {
+                    ($0 as? ReviewItem)?.id == item.id
+                }) {
+                    item.avatar = image
+                    self?.state.items[index] = item
+                    self?.onStateChange?(self!.state)
+                } else {
+                    item.avatar = image
+                }
+            }
+        }
+        
         return item
     }
     

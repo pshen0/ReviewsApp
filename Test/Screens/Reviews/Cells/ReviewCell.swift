@@ -18,6 +18,8 @@ struct ReviewCellConfig {
     var maxLines = 3
     /// Время создания отзыва.
     let created: NSAttributedString
+    /// Время создания отзыва.
+    var avatar: UIImage
     /// Замыкание, вызываемое при нажатии на кнопку "Показать полностью...".
     let onTapShowMore: (UUID) -> Void
 
@@ -39,6 +41,7 @@ extension ReviewCellConfig: TableCellConfig {
         cell.reviewTextLabel.attributedText = reviewText
         cell.reviewTextLabel.numberOfLines = maxLines
         cell.createdLabel.attributedText = created
+        cell.avatarImage.image = avatar
         cell.config = self
     }
 
@@ -111,7 +114,7 @@ private extension ReviewCell {
         contentView.addSubview(avatarImage)
         avatarImage.clipsToBounds = true
         avatarImage.layer.cornerRadius = Layout.avatarCornerRadius
-        avatarImage.image = UIImage.avatarPic
+        avatarImage.contentMode = .scaleAspectFill
     }
     
     func setupUsernameTextLabel() {

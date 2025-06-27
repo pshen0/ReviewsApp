@@ -1,6 +1,8 @@
 /// Модель, хранящая состояние вью модели.
 
 import Foundation
+import UIKit
+
 struct ReviewsViewModelState {
 
     var items = [any TableCellConfig]()
