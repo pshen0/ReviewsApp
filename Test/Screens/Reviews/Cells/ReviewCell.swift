@@ -135,6 +135,8 @@ private extension ReviewCell {
         contentView.addSubview(showMoreButton)
         showMoreButton.contentVerticalAlignment = .fill
         showMoreButton.setAttributedTitle(Config.showMoreText, for: .normal)
+        showMoreButton.removeTarget(nil, action: nil, for: .allEvents)
+        showMoreButton.addTarget(self, action: #selector(showMoreDidTap), for: .touchUpInside)
     }
 
 }
@@ -244,6 +246,17 @@ private final class ReviewCellLayout {
         return createdLabelFrame.maxY + insets.bottom
     }
 
+}
+
+// MARK: - Actions
+
+private extension ReviewCell {
+    
+    @objc private func showMoreDidTap() {
+        guard let config = config else { return }
+        config.onTapShowMore(config.id)
+    }
+    
 }
 
 // MARK: - Typealias
