@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class ReviewsAvatarLoader {
-    static let shared = ReviewsAvatarLoader()
+final class ReviewsPhotoLoader {
+    static let shared = ReviewsPhotoLoader()
     
     private let memoryCache = NSCache<NSURL, UIImage>()
     private let fileManager = FileManager.default
@@ -25,7 +25,7 @@ final class ReviewsAvatarLoader {
     
 }
 
-extension ReviewsAvatarLoader {
+extension ReviewsPhotoLoader {
     func loadImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
         let cacheKey = url as NSURL
         

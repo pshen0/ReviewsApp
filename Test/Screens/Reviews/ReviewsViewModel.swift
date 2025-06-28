@@ -99,13 +99,14 @@ private extension ReviewsViewModel {
             reviewText: reviewText,
             created: created,
             avatar: UIImage.avatarPic,
+            photos: Array(repeating: UIImage.IMG_0001, count: review.photo_urls.count),
             onTapShowMore: { [weak self] id in
                 self?.showMoreReview(with: id)
             }
         )
         
         if let url = URL(string: review.avatar_url) {
-            ReviewsAvatarLoader.shared.loadImage(from: url) { [weak self] image in
+            ReviewsPhotoLoader.shared.loadImage(from: url) { [weak self] image in
                 guard let image else { return }
                 
                 if let index = self?.state.items.firstIndex(where: {
@@ -116,6 +117,24 @@ private extension ReviewsViewModel {
                     self?.onStateChange?(self!.state)
                 } else {
                     item.avatar = image
+                }
+            }
+        }
+        
+        for i in review.photo_urls.indices {
+            if let url = URL(string: review.photo_urls[i]) {
+                ReviewsPhotoLoader.shared.loadImage(from: url) { [weak self] image in
+                    guard let image else { return }
+                    
+                    if let index = self?.state.items.firstIndex(where: {
+                        ($0 as? ReviewItem)?.id == item.id
+                    }) {
+                        item.photos[i] = image
+                        self?.state.items[index] = item
+                        self?.onStateChange?(self!.state)
+                    } else {
+                        item.photos[i] = image
+                    }
                 }
             }
         }

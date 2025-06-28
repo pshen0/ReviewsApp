@@ -12,4 +12,6 @@ struct Review: Decodable {
     let created: String
     /// Ссылка на аватар пользователя.
     let avatar_url: String
+    /// Ссылки накартинки отзыва.
+    let photo_urls: [String]
 }
