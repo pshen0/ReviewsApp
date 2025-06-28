@@ -35,6 +35,8 @@ extension ReviewsViewModel {
     func getReviews() {
         guard state.shouldLoad else { return }
         state.shouldLoad = false
+        state.isLoading = true
+        onStateChange?(state)
         
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             self?.reviewsProvider.getReviews(offset: self?.state.offset ?? 0) { result in
@@ -52,6 +54,12 @@ private extension ReviewsViewModel {
 
     /// Метод обработки получения отзывов.
     func gotReviews(_ result: ReviewsProvider.GetReviewsResult) {
+        defer {
+            state.isLoading = false
+            state.wasLoaded = true
+            onStateChange?(state)
+        }
+        
         do {
             let data = try result.get()
             let reviews = try decoder.decode(Reviews.self, from: data)

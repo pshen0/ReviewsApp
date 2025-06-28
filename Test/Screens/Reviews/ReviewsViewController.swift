@@ -28,6 +28,7 @@ final class ReviewsViewController: UIViewController {
     deinit {
         reviewsView.tableView.delegate = nil
         reviewsView.tableView.dataSource = nil
+        print("md dk")
     }
 }
 
@@ -43,7 +44,16 @@ private extension ReviewsViewController {
     }
 
     func setupViewModel() {
-        viewModel.onStateChange = { [weak reviewsView] _ in
+        viewModel.onStateChange = { [weak reviewsView] state in
+
+            if state.isLoading && !state.wasLoaded {
+                reviewsView?.activityIndicator.startAnimating()
+                reviewsView?.tableView.isHidden = true
+            } else {
+                reviewsView?.activityIndicator.stopAnimating()
+                reviewsView?.tableView.isHidden = false
+            }
+
             reviewsView?.tableView.reloadData()
         }
     }
