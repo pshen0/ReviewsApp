@@ -164,9 +164,27 @@ private extension ReviewsViewModel {
     }
     
     func makeReviewCountItem(_ reviewCount: Int) -> ReviewCountItem {
-        let reviewCountString = ("\(reviewCount) отзывов")
+        let reviewCountString = getReviewsCountString(for: reviewCount)
         let item = ReviewCountItem(reviewCount: reviewCountString.attributed(font: .reviewCount, color: .reviewCount))
         return item
+    }
+    
+    func getReviewsCountString(for count: Int) -> String {
+        let rem100 = count % 100
+        let rem10 = count % 10
+        
+        if rem100 >= 11 && rem100 <= 14 {
+            return "\(count) отзывов"
+        }
+        
+        switch rem10 {
+        case 1:
+            return "\(count) отзыв"
+        case 2, 3, 4:
+            return "\(count) отзыва"
+        default:
+            return "\(count) отзывов"
+        }
     }
 
 }
