@@ -77,6 +77,7 @@ private extension ReviewsViewController {
     
     @objc func refresh() {
         viewModel.refreshReviews()
+        reviewsView.tableView.reloadData()
     }
     
 }

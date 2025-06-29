@@ -4,12 +4,12 @@ import Foundation
 import UIKit
 
 struct ReviewsViewModelState {
+    var allItems: [Review] = []
+    var displayedItems: [ReviewCellConfig] = []
+    var reviewCountCell = ReviewCountCellConfig(reviewCount: NSAttributedString())
+    var reviewCount = 0
     var isLoading = false
     var wasLoaded = false
-    var items = [any TableCellConfig]()
-    var limit = 20
-    var offset = 0
-    var shouldLoad = true
-    var reviewCount = 0
-    var reviewCountCell = ReviewCountCellConfig(reviewCount: NSAttributedString())
+    var currentPage: Int = 0
+    let pageSize: Int = 20
 }

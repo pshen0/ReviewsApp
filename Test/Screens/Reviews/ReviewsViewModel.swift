@@ -33,26 +33,20 @@ extension ReviewsViewModel {
     
     /// Метод получения отзывов.
     func getReviews() {
-        guard state.shouldLoad else { return }
-        state.shouldLoad = false
         state.isLoading = true
         onStateChange?(state)
-        
+
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            self?.reviewsProvider.getReviews(offset: self?.state.offset ?? 0) { result in
+            self?.reviewsProvider.getReviews { result in
                 DispatchQueue.main.async {
-                    self?.gotReviews(result)
+                    self?.handleInitialReviews(result)
                 }
             }
         }
     }
     
-    // Метод обновления отзывов при Pull-to-refresh.
     func refreshReviews() {
-        state.offset = 0
-        state.items = []
-        state.shouldLoad = true
-        state.isLoading = true
+        state = State()
         state.wasLoaded = true
         getReviews()
     }
@@ -63,41 +57,54 @@ extension ReviewsViewModel {
 private extension ReviewsViewModel {
 
     /// Метод обработки получения отзывов.
-    func gotReviews(_ result: ReviewsProvider.GetReviewsResult) {
+    func handleInitialReviews(_ result: ReviewsProvider.GetReviewsResult) {
         let group = DispatchGroup()
-        
+
         defer {
             group.notify(queue: .main) { [weak self] in
                 guard let self else { return }
                 self.state.isLoading = false
-                self.state.wasLoaded = true
                 self.onStateChange?(self.state)
             }
         }
-        
+
         do {
             let data = try result.get()
             let reviews = try decoder.decode(Reviews.self, from: data)
-            state.items += reviews.items.map { makeReviewItem($0, group: group) }
-            state.offset += state.limit
-            state.shouldLoad = state.offset < reviews.count
+
             state.reviewCount = reviews.count
+            state.allItems = reviews.items
+            state.wasLoaded = true
+
             state.reviewCountCell = makeReviewCountItem(reviews.count)
+            loadNextPage()
         } catch {
-            state.shouldLoad = true
+            print("Ошибка загрузки: \(error)")
         }
-        
+    }
+    
+    /// Подгружаем новые отзывы.
+    func loadNextPage() {
+        guard state.displayedItems.count < state.allItems.count else { return }
+
+        let start = state.currentPage * state.pageSize
+        let end = min(start + state.pageSize, state.allItems.count)
+        let pageReviews = state.allItems[start..<end]
+
+        let group = DispatchGroup()
+        let newItems = pageReviews.map { makeReviewItem($0, group: group) }
+
+        state.displayedItems += newItems
+        state.currentPage += 1
     }
 
     /// Метод, вызываемый при нажатии на кнопку "Показать полностью...".
     /// Снимает ограничение на количество строк текста отзыва (раскрывает текст).
     func showMoreReview(with id: UUID) {
         guard
-            let index = state.items.firstIndex(where: { ($0 as? ReviewItem)?.id == id }),
-            var item = state.items[index] as? ReviewItem
+            let index = state.displayedItems.firstIndex(where: { $0.id == id })
         else { return }
-        item.maxLines = .zero
-        state.items[index] = item
+        state.displayedItems[index].maxLines = .zero
         onStateChange?(state)
     }
 }
@@ -136,11 +143,11 @@ private extension ReviewsViewModel {
                 
                 guard let image else { return }
                 
-                if let index = self?.state.items.firstIndex(where: {
-                    ($0 as? ReviewItem)?.id == item.id
+                if let index = self?.state.displayedItems.firstIndex(where: {
+                    $0.id == item.id
                 }) {
                     item.avatar = image
-                    self?.state.items[index] = item
+                    self?.state.displayedItems[index] = item
                     self?.onStateChange?(self!.state)
                 } else {
                     item.avatar = image
@@ -156,11 +163,11 @@ private extension ReviewsViewModel {
                     
                     guard let image else { return }
                     
-                    if let index = self?.state.items.firstIndex(where: {
-                        ($0 as? ReviewItem)?.id == item.id
+                    if let index = self?.state.displayedItems.firstIndex(where: {
+                        $0.id == item.id
                     }) {
                         item.photos[i] = image
-                        self?.state.items[index] = item
+                        self?.state.displayedItems[index] = item
                         self?.onStateChange?(self!.state)
                     } else {
                         item.photos[i] = image
@@ -203,8 +210,8 @@ private extension ReviewsViewModel {
 extension ReviewsViewModel: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if state.items.count < state.reviewCount {
-            return state.items.count
+        if state.displayedItems.count < state.reviewCount {
+            return state.displayedItems.count
         } else {
             return state.reviewCount + 1
         }
@@ -218,7 +225,7 @@ extension ReviewsViewModel: UITableViewDataSource {
             return cell
         }
         
-        let config = state.items[indexPath.row]
+        let config = state.displayedItems[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: config.reuseId, for: indexPath)
         config.update(cell: cell)
         return cell
@@ -235,7 +242,7 @@ extension ReviewsViewModel: UITableViewDelegate {
             return state.reviewCountCell.height(with: tableView.bounds.size)
         }
         
-        return state.items[indexPath.row].height(with: tableView.bounds.size)
+        return state.displayedItems[indexPath.row].height(with: tableView.bounds.size)
     }
 
     /// Метод дозапрашивает отзывы, если до конца списка отзывов осталось два с половиной экрана по высоте.
@@ -245,7 +252,8 @@ extension ReviewsViewModel: UITableViewDelegate {
         targetContentOffset: UnsafeMutablePointer<CGPoint>
     ) {
         if shouldLoadNextPage(scrollView: scrollView, targetOffsetY: targetContentOffset.pointee.y) {
-            getReviews()
+            loadNextPage()
+            onStateChange?(state)
         }
     }
 
