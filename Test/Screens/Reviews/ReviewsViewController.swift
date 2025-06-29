@@ -5,6 +5,11 @@ final class ReviewsViewController: UIViewController {
     private lazy var reviewsView = makeReviewsView()
     private let viewModel: ReviewsViewModel
     private let refreshControl = UIRefreshControl()
+    private let sortingModesAlert = UIAlertController(
+        title: nil,
+        message: nil,
+        preferredStyle: .actionSheet
+    )
 
     init(viewModel: ReviewsViewModel) {
         self.viewModel = viewModel
@@ -18,13 +23,15 @@ final class ReviewsViewController: UIViewController {
     override func loadView() {
         view = reviewsView
         title = "Отзывы"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.up.and.down.and.sparkles"), style: .plain, target: self, action: #selector(presentSortingModes))
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewModel()
-        viewModel.getReviews()
         setupPullToRefresh()
+        setupSortingModesAlert()
+        viewModel.getReviews(sortingMode: .noSort)
     }
     
     deinit {
@@ -67,6 +74,20 @@ private extension ReviewsViewController {
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         reviewsView.tableView.refreshControl = refreshControl
     }
+    
+    func setupSortingModesAlert() {
+        sortingModesAlert.addAction(UIAlertAction(title: "С высокой оценкой", style: .default) { [weak self] _ in
+            self?.viewModel.getReviews(sortingMode: .best)
+            self?.reviewsView.tableView.reloadData()
+        })
+
+        sortingModesAlert.addAction(UIAlertAction(title: "С низкой оценкой", style: .default) { [weak self] _ in
+            self?.viewModel.getReviews(sortingMode: .worst)
+            self?.reviewsView.tableView.reloadData()
+        })
+
+        sortingModesAlert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+    }
 
 }
 
@@ -78,6 +99,10 @@ private extension ReviewsViewController {
     @objc func refresh() {
         viewModel.refreshReviews()
         reviewsView.tableView.reloadData()
+    }
+    
+    @objc func presentSortingModes() {
+        present(sortingModesAlert, animated: true, completion: nil)
     }
     
 }

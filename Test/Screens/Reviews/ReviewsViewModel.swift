@@ -32,14 +32,14 @@ extension ReviewsViewModel {
     typealias State = ReviewsViewModelState
     
     /// Метод получения отзывов.
-    func getReviews() {
+    func getReviews(sortingMode: SortingModes) {
         state.isLoading = true
         onStateChange?(state)
 
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             self?.reviewsProvider.getReviews { result in
                 DispatchQueue.main.async {
-                    self?.handleInitialReviews(result)
+                    self?.handleInitialReviews(result, sortingMode: sortingMode)
                 }
             }
         }
@@ -48,8 +48,10 @@ extension ReviewsViewModel {
     func refreshReviews() {
         state = State()
         state.wasLoaded = true
-        getReviews()
+        getReviews(sortingMode: .noSort)
     }
+    
+    
 }
 
 // MARK: - Private
@@ -57,7 +59,7 @@ extension ReviewsViewModel {
 private extension ReviewsViewModel {
 
     /// Метод обработки получения отзывов.
-    func handleInitialReviews(_ result: ReviewsProvider.GetReviewsResult) {
+    func handleInitialReviews(_ result: ReviewsProvider.GetReviewsResult, sortingMode: SortingModes) {
         let group = DispatchGroup()
 
         defer {
@@ -71,9 +73,19 @@ private extension ReviewsViewModel {
         do {
             let data = try result.get()
             let reviews = try decoder.decode(Reviews.self, from: data)
-
+            
+            switch sortingMode {
+            case .best:
+                state.allItems = reviews.items.sorted{ $0.rating > $1.rating }
+            case .worst:
+                state.allItems = reviews.items.sorted { $0.rating < $1.rating }
+            default:
+                state.allItems = reviews.items
+            }
+            
+            state.displayedItems = []
+            state.currentPage = 0
             state.reviewCount = reviews.count
-            state.allItems = reviews.items
             state.wasLoaded = true
 
             state.reviewCountCell = makeReviewCountItem(reviews.count)
