@@ -3,7 +3,7 @@ import UIKit
 final class ReviewsView: UIView {
 
     let tableView = UITableView()
-    let activityIndicator = UIActivityIndicatorView(style: .medium)
+    let activityIndicator = CustomLoadIndicatorView()
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

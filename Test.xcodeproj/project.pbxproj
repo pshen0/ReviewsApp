@@ -11,6 +11,7 @@
 		0F6DB0032E0B2CD6000A76DE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 0F6DB0022E0B2CD6000A76DE /* .gitignore */; };
 		0F6DB0052E0E27BE000A76DE /* ReviewsPhotoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6DB0042E0E27AE000A76DE /* ReviewsPhotoLoader.swift */; };
 		0FD7C24A2E11E76000E823BF /* SortingModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD7C2492E11E75900E823BF /* SortingModes.swift */; };
+		0FD7C24D2E11FBAE00E823BF /* CustomLoadIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD7C24C2E11FBAE00E823BF /* CustomLoadIndicator.swift */; };
 		2166686F2D48E23F009AAA76 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2166686E2D48E23F009AAA76 /* Fonts.swift */; };
 		216668712D48E4B2009AAA76 /* NSAttributedString+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216668702D48E4B2009AAA76 /* NSAttributedString+Ext.swift */; };
 		216668732D48E89A009AAA76 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216668722D48E89A009AAA76 /* Colors.swift */; };
@@ -38,6 +39,7 @@
 		0F6DB0022E0B2CD6000A76DE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		0F6DB0042E0E27AE000A76DE /* ReviewsPhotoLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsPhotoLoader.swift; sourceTree = "<group>"; };
 		0FD7C2492E11E75900E823BF /* SortingModes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingModes.swift; sourceTree = "<group>"; };
+		0FD7C24C2E11FBAE00E823BF /* CustomLoadIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoadIndicator.swift; sourceTree = "<group>"; };
 		2166686E2D48E23F009AAA76 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		216668702D48E4B2009AAA76 /* NSAttributedString+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Ext.swift"; sourceTree = "<group>"; };
 		216668722D48E89A009AAA76 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -72,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FD7C24B2E11FB8300E823BF /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				0FD7C24C2E11FBAE00E823BF /* CustomLoadIndicator.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		2166686D2D48DEBF009AAA76 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +146,7 @@
 		21B82E2A2D47B0640085DAA2 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				0FD7C24B2E11FB8300E823BF /* CustomViews */,
 				21ED1F632D69CF860012D6F6 /* Root */,
 				21B82E372D47B1090085DAA2 /* Reviews */,
 			);
@@ -293,6 +304,7 @@
 				2166686F2D48E23F009AAA76 /* Fonts.swift in Sources */,
 				21B82E312D47B0640085DAA2 /* AppDelegate.swift in Sources */,
 				0F6DB0012E0B29CF000A76DE /* ReviewCountCell.swift in Sources */,
+				0FD7C24D2E11FBAE00E823BF /* CustomLoadIndicator.swift in Sources */,
 				21B8416F2D47C4C60085DAA2 /* String+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
