@@ -28,7 +28,6 @@ final class ReviewsViewController: UIViewController {
     deinit {
         reviewsView.tableView.delegate = nil
         reviewsView.tableView.dataSource = nil
-        print("md dk")
     }
 }
 

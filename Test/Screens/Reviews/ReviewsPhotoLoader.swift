@@ -16,7 +16,7 @@ final class ReviewsPhotoLoader {
     
     private init() {
         let caches = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first!
-        diskCacheURL = caches.appendingPathComponent("AvatarCache", isDirectory: true)
+        diskCacheURL = caches.appendingPathComponent("PhotoCache", isDirectory: true)
         
         if !fileManager.fileExists(atPath: diskCacheURL.path) {
             try? fileManager.createDirectory(at: diskCacheURL, withIntermediateDirectories: true)
