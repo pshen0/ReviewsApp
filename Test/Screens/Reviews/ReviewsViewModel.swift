@@ -46,6 +46,16 @@ extension ReviewsViewModel {
             }
         }
     }
+    
+    // Метод обновления отзывов при Pull-to-refresh.
+    func refreshReviews() {
+        state.offset = 0
+        state.items = []
+        state.shouldLoad = true
+        state.isLoading = true
+        state.wasLoaded = true
+        getReviews()
+    }
 }
 
 // MARK: - Private
@@ -54,7 +64,6 @@ private extension ReviewsViewModel {
 
     /// Метод обработки получения отзывов.
     func gotReviews(_ result: ReviewsProvider.GetReviewsResult) {
-        
         let group = DispatchGroup()
         
         defer {
@@ -77,7 +86,7 @@ private extension ReviewsViewModel {
         } catch {
             state.shouldLoad = true
         }
-        onStateChange?(state)
+        
     }
 
     /// Метод, вызываемый при нажатии на кнопку "Показать полностью...".

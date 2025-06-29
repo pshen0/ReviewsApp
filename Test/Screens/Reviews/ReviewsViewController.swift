@@ -4,6 +4,7 @@ final class ReviewsViewController: UIViewController {
 
     private lazy var reviewsView = makeReviewsView()
     private let viewModel: ReviewsViewModel
+    private let refreshControl = UIRefreshControl()
 
     init(viewModel: ReviewsViewModel) {
         self.viewModel = viewModel
@@ -23,6 +24,7 @@ final class ReviewsViewController: UIViewController {
         super.viewDidLoad()
         setupViewModel()
         viewModel.getReviews()
+        setupPullToRefresh()
     }
     
     deinit {
@@ -52,9 +54,29 @@ private extension ReviewsViewController {
                 reviewsView?.activityIndicator.stopAnimating()
                 reviewsView?.tableView.isHidden = false
             }
+            
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
 
             reviewsView?.tableView.reloadData()
         }
     }
+    
+    func setupPullToRefresh() {
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        reviewsView.tableView.refreshControl = refreshControl
+    }
 
+}
+
+
+// MARK: - Actions
+
+private extension ReviewsViewController {
+    
+    @objc func refresh() {
+        viewModel.refreshReviews()
+    }
+    
 }
