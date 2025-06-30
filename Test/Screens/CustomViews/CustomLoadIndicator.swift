@@ -34,6 +34,7 @@ final class CustomLoadIndicatorView: UIView {
 
         shapeLayer.path = circularPath.cgPath
         shapeLayer.strokeColor = UIColor.secondaryLabel.cgColor
+        shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineWidth = 4
         shapeLayer.lineCap = .round
         shapeLayer.strokeEnd = 0.75

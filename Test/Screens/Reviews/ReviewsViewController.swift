@@ -52,7 +52,7 @@ private extension ReviewsViewController {
     }
 
     func setupViewModel() {
-        viewModel.onStateChange = { [weak reviewsView] state in
+        viewModel.onStateChange = { [weak reviewsView, weak self] state in
 
             if state.isLoading && !state.wasLoaded {
                 reviewsView?.activityIndicator.startAnimating()
@@ -62,8 +62,10 @@ private extension ReviewsViewController {
                 reviewsView?.tableView.isHidden = false
             }
             
-            if self.refreshControl.isRefreshing {
-                self.refreshControl.endRefreshing()
+            if let isRef = self?.refreshControl.isRefreshing {
+                if isRef {
+                    self?.refreshControl.endRefreshing()
+                }
             }
 
             reviewsView?.tableView.reloadData()

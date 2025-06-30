@@ -141,7 +141,7 @@ private extension ReviewsViewModel {
             reviewText: reviewText,
             created: created,
             avatar: UIImage.avatarPic,
-            photos: Array(repeating: UIImage.IMG_0001, count: review.photo_urls.count),
+            photos: Array(repeating: UIImage.photoPic, count: review.photo_urls.count),
             onTapShowMore: { [weak self] id in
                 self?.showMoreReview(with: id)
             }
